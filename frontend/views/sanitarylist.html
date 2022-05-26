@@ -1,0 +1,41 @@
+<div class="main">
+        <div class="content_box">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3 class="m_1" style="margin-left:2%"> Genatic medicine</h3>
+                    <div style="padding:2%;" class="row" ng-controller="sanitarycontroller">
+                        <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="items in data.data">
+                            <div class="account mrgnbtm">
+                                <a style="text-decoration:none" ng-href="#/preview" ng-click="showdata($event,items)">
+                                <img  src="{{items.url}}" class="img-responsive newitemimage" alt="" /></a>
+                                <div style="float:right !important; padding:2%">
+                                    <span class="newitemprice">Rs. {{items.price}}</span>
+                                </div>
+                                <div style="padding:2%">
+                                    <p class="newitemname">{{items.name}}</p>
+                                </div>
+    
+                                <div>
+                                    <a>
+                                        <button ng-click="tocartdatabase($event,items)" class="btn btn-primary buynowbtn" type="submit">
+                                            <span class="glyphicon glyphicon-shopping-cart"></span>&nbspAdd To Cart
+                                        </button>
+                                    </a>
+                                </div>
+                                <div>
+                                    <a>
+                                        <button ng-click="buynowfunc($event,items)" class="btn btn-danger buynowbtn" type="submit">
+                                            <span class="glyphicon glyphicon-gift"></span>
+                                            &nbspBuy Now
+                                        </button>
+                                    </a>
+                                </div>
+                                <div class="clearfix"></div>
+         </div>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>

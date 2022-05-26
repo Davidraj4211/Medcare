@@ -1,0 +1,29 @@
+app.config(function($routeProvider,$locationProvider,HOME,ITEMLIST,TOPITEMLIST,SANITIZERLIST,SANITARYLIST,CLIST,CONTACTUS,CHECKOUT,CART,PREVIEW,MYPROFILE,ORDERHISTORY){
+    $locationProvider.hashPrefix('');
+    $routeProvider.when(HOME,{
+        templateUrl:'views/home.html'
+    }).when(ITEMLIST,{
+        templateUrl:'views/itemlist.html',
+    }).when(TOPITEMLIST,{
+        templateUrl:'views/topitemlist.html',
+    }).when(SANITIZERLIST,{
+        templateUrl:'views/sanitizerlist.html',
+    }).when(SANITARYLIST,{
+        templateUrl:'views/sanitarylist.html',
+    }).when(CLIST,{
+        templateUrl:'views/clist.html',
+    }).when(CONTACTUS,{
+        templateUrl:'views/contactus.html',
+    }).when(CART,{
+        templateUrl:'views/cart.html',
+    }).when(PREVIEW,{
+        templateUrl:'views/preview.html',
+    }).when(CHECKOUT,{
+        templateUrl:'views/checkout.html',
+    }).when(MYPROFILE,{
+        templateUrl:'views/myprofile.html',
+    }).when(ORDERHISTORY,{
+        templateUrl:'views/orderhistory.html',
+    })
+    .otherwise({template:'Some Wrong URI U Type'});
+});

@@ -1,0 +1,63 @@
+<div ng-controller="myctrl" class="main">
+    <div class="container">
+        <div class="check_box">
+            <div class="col-md-9 cart-items">
+                <h1>My Shopping Bag <span>({{cartcount}})</span></h1>
+                
+                <div id="cartdivcount" ng-repeat="items in data.data" style="padding-bottom:0%;margin-bottom:4%" class="cart-header account">
+                    <div style="float:right" ng-click="deleteitem($event,items)"><span class="glyphicon glyphicon-remove setcursor"></span> </div>
+                    <div class="cart-sec simpleCart_shelfItem">
+                        <div class="cart-item cyc">
+                            <img src="{{items.url}}" class="img-responsive" alt="">
+                        </div>
+                        <div style="font-family: Roboto, Arial, sans-serif" class="cart-item-info">
+                            <h3>
+                                <a style="text-decoration:none">{{items.name}}</a>
+                                <span>Model no: {{items.modalno}}</span>
+                            </h3>
+                            <ul style="font-family: Roboto, Arial, sans-serif" class="qty">
+                                <li>
+                                    <p>Qty: {{items.buyquantity}}</p>
+                                </li>
+                            </ul>
+                            <div class="delivery">
+                                <p  class="cartprice">Price: Rs.{{items.price}}</p>
+                                <div class="clearfix"></div>
+                            </div>
+                        </div>
+                        <div class="clearfix"></div>
+
+                    </div>
+                </div>
+            </div>
+            <div ng-show="!placeorder" class="col-md-3 cart-total">
+                <div class="price-details mrgntop-80 account">
+                    <h3>Price Details</h3>
+                    <span>Total</span>
+                    <span class="total1">{{totalpricecart}}</span>
+                    <span>Discount</span>
+                    <span class="total1">---</span>
+                    <span>Delivery Charges</span>
+                    <span class="total1">50.00</span>
+                    <div class="clearfix"></div>
+                </div>
+                <ul class="total_price account">
+                    <li class="last_price">
+                        <h4>TOTAL</h4>
+                    </li>
+                    <li class="last_price">
+                        <span>{{finaltotal}}</span>
+                    </li>
+                    <div class="clearfix"> </div>
+                </ul>
+
+
+                <div class="clearfix"></div>
+                <a class="order">Place Order</a>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+
+   

@@ -1,0 +1,70 @@
+<div>
+    <div class="container">
+        <div class="account mrgntop mrgnbtm">
+            <div class="register-top-grid">
+                <h3> MY ORDERS </h3>
+            </div>
+
+            <div class="orderhistory"  ng-repeat="items in data.data">
+                <div class="headingdiv">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <div class="ordid"> Order Id :
+                                <span> {{items.orderid}} </span>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="ordid" id="ordiddiv"> Ordered On :
+                                <span> {{items.purchasing_date_time}}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="{{items.imageurl}}" class="img" alt="">
+                    </div>
+                    <div class="col-md-4">
+                        <div id="itemname">
+                            <span> {{items.productname}} </span>
+                        </div>
+                        <div id="itemprice">
+                            <span> Rs. {{items.price}}</span>
+                        </div>
+                        <ul class="qty">
+                            <li>
+                                <p>Qty : {{items.buy_quantity}}</p>
+                            </li>
+                        </ul>
+                    </div>
+                    <div col-md-5>
+
+                    </div>
+                </div>
+
+                <div class="status">
+                    <span class="subordstatus"> Status :
+                        <span class="subordtext"> {{items.status}} </span>
+                    </span>
+                    <span class="expdel"> Delivery Time :
+                        <span class="subordtext"> {{items.delivery_time}} </span>
+                    </span>
+
+                </div>
+                <div style="border-bottom: solid 1px #e0e0e0;margin-top:2%"></div>
+                <div class="container" style="margin:2%">
+                    <div style="font-size: 1.05em;
+                    color: #757575;
+                    font-family: Roboto, Arial, sans-serif;">
+                        <ul class="progressbar">
+                            <li class="active">PLACED</li>
+                            <li ng-class="{active:items.status=='Dispatched',active:items.status=='Delivered'}">DISPATCHED</li>
+                            <li ng-class="{active:items.status=='Delivered'}">DELIVERED</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

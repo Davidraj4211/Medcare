@@ -1,0 +1,91 @@
+<!-- MAIN SECTION -->
+<div class="main">
+    <div class="content_box">
+        <div class="row">
+
+            <div class="col-md-12">
+                <h3 class="m_1" style="margin-left:2%">New Products</h3>
+                <div style="padding:2%;" class="row" ng-controller="retrieveproductcontroller">
+                    <!-- <div > -->
+                    <div class="col-xs-12 col-sm-6 col-md-3" ng-repeat="items in data.data|limitTo:7">
+                        <a style="text-decoration:none" ng-href="#/preview" ng-click="showdata($event,items)">
+                            <div class="account newitemdiv">
+                                <img src="{{items.url}}" class="img-responsive newitemimage" alt="" />
+                                <p class="newitemname">{{items.name}}</p>
+                                <span class="newitemprice">Rs. {{items.price}}</span>
+                                <div class="clearfix"></div>
+                            </div>
+                        </a>
+                    </div>
+                    <!-- </div> -->
+                    <div class="col-xs-12 col-sm-6 col-md-3">
+                        <a ng-href="#/itemlist" style="text-decoration:none">
+                            <div class="account">
+                                <div class="img-responsive">
+                                    <h3 class="viewallclick">View All ></h3>
+                                </div>
+                            </div>
+                        </a>
+                    </div>
+                    <div class="clearfix"></div>
+                </div>
+
+
+
+                <h3 style="margin-left:2%" class="m_1">Top Products</h3>
+                <div class="account" style="padding:0%;margin:2%">
+                    <div id="view_all_div" class="col_1_of_4 span_1_of_4 simpleCart_shelfItem" ng-controller="retrievetopcontroller">
+                        <a>
+                            <div class="inner_content clearfix">
+                                <a href="#/topitemlist">
+                                    <div class="product_image">
+                                        <h3 style="padding:5em 0 5em 0" class="viewallclick">View All ></h3>
+                                    </div>
+                                </a>
+                            </div>
+                        </a>
+                    </div>
+
+                    <ul id="flexiselDemo3">
+                        <li>
+                            <img src="images/pic1.jpg" class="img-responsive" />
+                            <div class="grid-flex">
+                                <a href="#">Babycare </a>
+                                <p>Rs 600</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="images/pic10.jpg" class="img-responsive" />
+                            <div class="grid-flex">
+                                <a href="#">Clear</a>
+                                <p>Rs 1050</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="images/pic4.jpg" class="img-responsive" />
+                            <div class="grid-flex">
+                                <a href="#">HS</a>
+                                <p>Rs 990</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="images/pic8.jpg" class="img-responsive" />
+                            <div class="grid-flex">
+                                <a href="#">Zane</a>
+                                <p>Rs 850</p>
+                            </div>
+                        </li>
+                        <li>
+                            <img src="images/pic7.jpg" class="img-responsive" />
+                            <div class="grid-flex">
+                                <a href="#">New</a>
+                                <p>Rs 870</p>
+                            </div>
+                        </li>
+                    </ul>
+                    <div class="clearfix"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

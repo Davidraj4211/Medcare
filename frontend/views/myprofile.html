@@ -1,0 +1,143 @@
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            <div class="account mrgntop border-btm">
+                <div>
+                    <div class="Account font-size-20">
+                        <a>
+                            <span class="glyphicon glyphicon-inbox account-icon"></span>
+                        </a>
+                        <a ng-href="#/orderhistory">
+                            <span class="highlight"> ORDER HISTORY </span>
+                        </a>
+                        <a ng-href="#/orderhistory">
+                            <span class="glyphicon glyphicon-menu-right right"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="account">
+                <div>
+                    <div class="Account">
+                        <span class="glyphicon glyphicon-user account-icon"></span>ACCOUNT SETTINGS
+                    </div>
+                </div>
+                <ul class="nav nav-pills my-nav-pills">
+                    <li class="active">
+                        <a data-toggle="pill" data-target="#myinfo"> Personal Information </a>
+                    </li>
+                    <li>
+                        <a data-toggle="pill" data-target="#changepass"> Change Password </a>
+                    </li>
+                    <li>
+                        <a data-toggle="pill" data-target="#manageaddress" ng-click="fromaddressdb()"> Manage Addresses </a>
+                    </li>
+                </ul>
+
+            </div>
+            <div class="account border-top">
+                <div>
+                    <div class="Account font-size-20">
+                        <a>
+                            <span class="glyphicon glyphicon-off account-icon"></span>
+                        </a>
+                        <a ng-click="logoutfunc()">
+                            <span class="highlight"> LOGOUT </span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-9">
+            <div class="tab-content">
+                <!-- Personal Info div -->
+                <div id="myinfo" class="tab-pane fade in active">
+                    <div class="account mrgntop mrgnbtm">
+                        <form>
+                            <div class="register-top-grid">
+                                <a class="topedit" ng-click="save()"> Save</a>
+                                <a class="topedit"  ng-click="edit()"> Edit </a>
+                                <h3>PERSONAL INFORMATION</h3>
+                                <div>
+                                    <span class="edit">First Name</span>
+                                    <input ng-model="fname" type="text" ng-disabled="isDisabled">
+                                </div>
+                                <div>
+                                    <span class="edit">Last Name</span>
+                                    <input ng-model="lname" type="text" ng-disabled="isDisabled">
+                                </div>
+                                <div>
+                                    <span class="edit">Mobile Number</span>
+                                    <input ng-model="mobile" type="text" ng-disabled="isDisabled">
+                                </div>
+                                <div>
+                                    <span class="edit">Email Address</span>
+                                    <input ng-model="email" type="text" ng-disabled="email">
+                                </div>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </form>
+                        <div class="clearfix"> </div>
+                    </div>
+                </div>
+                <!--- Change Password div -->
+                <div id="changepass" class="tab-pane fade">
+                    <div class="account mrgntop mrgnbtm">
+                        <form>
+                            <div class="register-top-grid">
+                                <h3> CHANGE PASSWORD </h3>
+                                <div>
+                                    <span class="edit"> Current Password </span>
+                                    <input type="password" style="margin-bottom:0px" id="currentpassword">
+                                    <p class="error"> {{current}} </p>
+                                </div>
+                                <div>
+                                    <span class="edit"> New Password </span>
+                                    <input type="password" id="newpassword">
+                                </div>
+                                
+                                <div>
+                                    <span class="edit"> Confirm password </span>
+                                    <input type="password" style="margin-bottom:0px" id="confirmpassword">
+                                    <p class="error" > {{confirm}} </p>
+                                </div>
+                                
+                                <div class="clearfix"> </div>
+                            </div>
+                        </form>
+                        <div class="clearfix"> </div>
+                        
+                        <div class="confirm-but">
+                            
+                            <form>
+                                <input type="submit" value="Confirm Password" ng-click="confirmpass()">
+                                <div class="clearfix"> </div>
+                            </form>
+                            <p class="myblue"> {{passchange}} </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!--- Manage Addresses div -->
+                <div id="manageaddress" class="tab-pane fade">
+                    <div class="account mrgntop mrgnbtm">
+                        <div class="register-top-grid">
+                            <h3> MANAGE ADDRESSES </h3>
+                        </div>
+                        <div class="manage_addr" ng-repeat="items in data.data">
+                            <div class="imgdel">
+                                <!-- <span class="glyphicon glyphicon-remove"></span> -->
+                            </div>
+                            <p>
+                                <span class="name"> {{items.name}} </span>
+                                <div class="addr">
+                                    <span> {{items.address}} </span>
+                                </div>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

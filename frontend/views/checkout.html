@@ -1,0 +1,232 @@
+</script>
+<div>
+    <div class="container" ng-controller="retrieveproductcontroller">
+        <div class="row">
+            <div style="float:right" class="col-md-4">
+                <div class="price-details account" style="margin-top:50px;">
+                    <h3>Price Details</h3>
+                    <span>Total</span>
+                    <span class="total1">{{calcprice}}</span>
+                    <span>Discount</span>
+                    <span class="total1">---</span>
+                    <span>Delivery Charges</span>
+                    <span class="total1">50</span>
+                    <div class="clearfix"></div>
+                </div>
+                <ul class="total_price account">
+                    <li class="last_price">
+                        <h4>TOTAL</h4>
+                    </li>
+                    <li class="last_price">
+                        <span>{{totalprice}}</span>
+                    </li>
+                    <div class="clearfix"> </div>
+                </ul>
+            </div>
+            <div class="col-md-8">
+                <div class="checkoutdiv">
+                    <div>
+                        <div class="headingdiv mrgntop">
+                            <span class="glyphicon glyphicon-plus" id="profileimage"></span>DELIVERY ADDRESS </div>
+                    </div>
+                    <div style="padding:2%;">
+                        <p class="topedit" data-toggle="modal" data-target="#myModalAddress">Edit</p>
+                        <input type="radio" ng-click="enable()">
+                        <span style="margin-left:1%;font-weight:bold;font-size:1.2em" class="edit">{{deliveryname}}</span>
+                    </div>
+                    <div class="address" style="margin-left:5%;font-size:1.1em">
+                        <p class="address">{{deliveryaddr}}</p>
+                    </div>
+                    <div style="padding:2%">
+                        <button ng-disabled="disabled" style="width:20%;margin-left:3.4%;" class="btn btn-danger" ng-click="summary=!summary;">DELIVER HERE</button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-8">
+                <div class="checkoutdiv">
+                    <div>
+                        <div class="headingdiv">
+                            <span class="glyphicon glyphicon-plus" id="profileimage"></span>ORDER SUMMARY </div>
+                    </div>
+                    <div ng-show="summary" style="padding:2%" class="cart-header">
+                        <div style="margin-bottom:0%" class="cart-sec simpleCart_shelfItem  clearfix">
+                            <div class="cart-item cyc">
+                                <img src="{{imgpath2}}" class="img-responsive" alt="">
+                            </div>
+                            <div class="cart-item-info">
+                                <h3 style="font-family: Roboto, Arial, sans-serif" class="edit">
+                                    <a href="#" id="checkname">{{checkname}}</a>
+                                    <span>Model No: {{checkmodel}}</span>
+                                </h3>
+                                <ul style="font-family: Roboto, Arial, sans-serif" class="qty">
+                                    <li>
+                                        <p>Qty : {{checkquant}}</p>
+                                    </li>
+                                </ul>
+                                <div class="delivery">
+                                    <p class="cartprice">Price : {{checkprice}}</p>
+                                    <div class="clearfix"></div>
+                                </div>
+                            </div>
+                            <div style="padding:2%;">
+                                <button style="width:20%;" class="btn btn-primary" ng-click="payment=!payment;">CONTINUE</button>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-8">
+                <div class="checkoutdiv">
+                    <div>
+                        <div class="headingdiv">
+                            <span class="glyphicon glyphicon-plus" id="profileimage"></span>PAYMENT </div>
+                    </div>
+                    <div ng-show="payment">
+                        <div style="padding:2%;">
+                            <input type="radio" name="rd" ng-click="enable1()">
+                            <span style="margin-left:1%" class="edit">Credit</span>
+                        </div>
+                        <div class="container">
+                            <div style="float:right;margin-top:15px;">
+                                <table>
+                                    <tr>
+                                        <td> CVV&nbsp&nbsp </td>
+                                        <td>
+                                            <input ng-disabled="cvv1" style="margin-right:3%;;border: 1px solid #ADA7A7;padding:2%;line-height:34px;width:70px;" type="text">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td> Card number </td>
+                                    <td>
+                                        <input ng-disabled="card1" style="margin:5%;border: 1px solid #ADA7A7;padding:2%;line-height:34px;width:210px;" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Name on Card</td>
+                                    <td>
+                                        <input ng-disabled="name1" style="margin:5%;border: 1px solid #ADA7A7;padding:2%;line-height:34px;width:210px;" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Expiry Date </td>
+                                    <td>
+                                        <input ng-disabled="date1" style="margin:5%;border: 1px solid #ADA7A7;padding:2%" type="month">
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div style="width:50%;  float:right" class="confirm-but">
+                                <form style="float:right">
+                                    <button ng-disabled="creditbtn" class="btn btn-danger pdbtn" ng-click="payfunc()">Pay Rs.{{totalprice}}</button>
+                                    <div class="clearfix"> </div>
+                                </form>
+                            </div>
+
+
+                        </div>
+                        <div style="border-bottom: solid 1px #e0e0e0;margin-top:2%"></div>
+                        <div style="padding:2%;">
+                            <input type="radio" name="rd" ng-click="enable2()">
+                            <span style="margin-left:1%" class="edit">Debit</span>
+                        </div>
+                        <div class="container">
+                            <div style="float:right;margin-top:15px;">
+                                <table>
+                                    <tr>
+                                        <td> CVV&nbsp&nbsp </td>
+                                        <td>
+                                            <input ng-disabled="cvv2" style="margin-right:3%;;border: 1px solid #ADA7A7;padding:2%;line-height:34px;width:70px;" type="text">
+                                        </td>
+                                    </tr>
+                                </table>
+                            </div>
+                            <table>
+                                <tr>
+                                    <td>Card number </td>
+                                    <td>
+                                        <input ng-disabled="card2" style="margin:5%;border: 1px solid #ADA7A7;padding:2%;line-height:34px;width:210px;" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Name on Card </td>
+                                    <td>
+                                        <input ng-disabled="name2" style="margin:5%;border: 1px solid #ADA7A7;padding:2%;line-height:34px;width:210px;" type="text">
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>Expiry Date</td>
+                                    <td>
+                                        <input ng-disabled="date2" style="margin:5%;border: 1px solid #ADA7A7;padding:2%" type="month">
+                                    </td>
+                                </tr>
+                            </table>
+
+                            <div style="width:50%;  float:right" class="confirm-but">
+                                <form style="float:right">
+                                    <button ng-disabled="debitbtn" class="btn btn-danger pdbtn" ng-click="payfunc()">Pay Rs.{{totalprice}}</button>
+                                    <div class="clearfix"> </div>
+                                </form>
+                            </div>
+
+                        </div>
+
+                        <div style="border-bottom: solid 1px #e0e0e0;margin-top:2%"></div>
+                        <div style="padding:4%;" class="mrgnbtm">
+                            <input type="radio" name="rd" ng-click="enable3()">
+                            <span style="margin-left:1%" class="edit">Cash on Delivery</span>
+                            <form style="float:right;margin-right:37px">
+                                <button ng-disabled="cashbtn" class="btn btn-danger pdbtn" ng-click="payfunc()">Pay Rs.{{totalprice}}</button>
+                                <div class="clearfix"> </div>
+                            </form>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade" id="myModalAddress" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+            <div class="modal-dialog myModalAdd" role="document">
+                <!-- <div  class="modal-content "></div> -->
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="main">
+                            <div class="contain">
+                                <div class="register">
+                                    <div class="register-top-grid">
+                                        <h3 style="margin-bottom:2%" class="text-center pb-3"> ADDRESS </h3>
+                                    </div>
+                                    <form name="f1" >
+                                        <div class="row my-form-group">
+                                            <div class="col-md-12">
+                                                <div class="form-group">
+                                                    <label class="inputheading"> Name </label>
+                                                    <input type="text" class="form-control inputbox" ng-model="name">    
+                                                </div> 
+                                                <div class="form-group">
+                                                    <label class="inputheading"> Delivery Address </label>
+                                                    <textarea class="form-control inputbox" rows="5" ng-model="deliveryaddress"></textarea>
+                                                </div>                                               
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <button class="btn mybtn" ng-click="address()"> Confirm </button>
+                                </form>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
