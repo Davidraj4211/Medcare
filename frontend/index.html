@@ -234,7 +234,7 @@
                                         </div>
                                     </div>
 
-                                    <button class="btn btn-default mybtn"  ng-click="Register()"
+                                    <button ng-disabled="f1.$invalid" class="btn btn-default mybtn"  ng-click="Register()"
                                         ng-hide="false">Sign Up</button>
                                   {{ data.message}}
                                 </form>
@@ -277,6 +277,10 @@
                             <a class="acount-btn" data-toggle="modal" data-dismiss="modal"
                                 data-target="#myModalRegister">Create an Account</a>
                         </div>
+
+
+
+
                         <div class="col-md-6 login-right">
 
 
@@ -330,12 +334,17 @@
 
                                 <button class="forgot setcursor btn" ng-show="forgot" ng-click="forgotpassword()">Reset
                                     Password</button>
-
+   
                                 <!-- forget end  -->
-                                <button class="btn" ng-click="Ulogin()" ng-show="!forgot"> Login </button>
+                                <button   ng-disabled="f2.$invalid" class="btn" ng-click="Ulogin()" ng-show="!forgot"> Login </button>
 
 {{log | json}}
+
+
                             </form>
+
+                            <a class="acount-btn" data-toggle="modal" data-dismiss="modal" ng-show="forgot"
+data-target="#modal" padding="10px">Back to Home</a>
                         </div>
                         <div class="clearfix"> </div>
                     </div>
